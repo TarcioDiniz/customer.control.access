@@ -1,4 +1,0 @@
-package com.customer.control.access.infra.config;
-
-public class SecurityConfig {
-}

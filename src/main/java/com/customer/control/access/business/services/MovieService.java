@@ -1,5 +1,6 @@
 package com.customer.control.access.business.services;
 
+import com.customer.control.access.domain.common.requests.movie.MovieRequest;
 import com.customer.control.access.domain.entities.Movie;
 import com.customer.control.access.domain.repositories.IMovieRepository;
 import com.customer.control.access.domain.services.IMovieService;
@@ -18,13 +19,20 @@ public class MovieService implements IMovieService {
 
 
     @Override
-    public Movie save(Movie input) {
-        return movieRepository.save(input);
+    public Movie save(MovieRequest input) {
+        var movie = new Movie();
+        movie.setTitle(input.getTitle());
+        movie.setDescription(input.getDescription());
+        movie.setReleaseDate(input.getReleaseDate());
+        movie.setGenre(input.getGenre());
+        movie.setReleaseDate(input.getReleaseDate());
+
+        return movieRepository.save(movie);
     }
 
     @Override
-    public Movie update(Movie input) {
-        return movieRepository.save(input);
+    public Movie update(MovieRequest input, Long id) {
+        return null;
     }
 
     @Override
@@ -43,5 +51,10 @@ public class MovieService implements IMovieService {
         var movie = movieRepository.findById(id);
         movieRepository.deleteById(id);
         return movie.orElse(null);
+    }
+
+    @Override
+    public List<Movie> searchByTitle(String title) {
+        return movieRepository.findByTitleContainingIgnoreCase(title);
     }
 }

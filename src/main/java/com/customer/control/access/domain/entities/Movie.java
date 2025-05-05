@@ -16,7 +16,7 @@ import java.util.Date;
 public class Movie extends BaseEntity {
 
     @Column(nullable = false)
-    private String name;
+    private String title;
     private String description;
     private String genre;
     @Temporal(TemporalType.DATE)

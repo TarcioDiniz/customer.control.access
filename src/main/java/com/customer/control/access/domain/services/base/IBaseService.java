@@ -12,7 +12,7 @@ public interface IBaseService<IN, OUT> {
 
     OUT save(IN input);
 
-    OUT update(IN input);
+    OUT update(IN input, Long id);
 
     OUT findById(Long id);
     List<OUT> findAll();

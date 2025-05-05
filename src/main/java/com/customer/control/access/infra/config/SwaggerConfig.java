@@ -1,5 +1,7 @@
 package com.customer.control.access.infra.config;
 
+import io.swagger.v3.oas.models.tags.Tag;
+import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -7,9 +9,10 @@ import org.springframework.context.annotation.Configuration;
 
 import java.awt.Desktop;
 import java.net.URI;
+import java.util.Comparator;
 
 @Configuration
-public class SwaggerUiAutoOpenConfig {
+public class SwaggerConfig {
 
     @Value("${server.port:8080}")
     private int port;
@@ -27,6 +30,15 @@ public class SwaggerUiAutoOpenConfig {
                 }
             } else {
                 System.out.println("Abra manualmente: http://localhost:" + port + "/swagger-ui/index.html");
+            }
+        };
+    }
+
+    @Bean
+    public OpenApiCustomizer sortTagsAlphabetically() {
+        return openApi -> {
+            if (openApi.getTags() != null) {
+                openApi.getTags().sort(Comparator.comparing(Tag::getName, String.CASE_INSENSITIVE_ORDER));
             }
         };
     }

@@ -21,7 +21,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaAuditing
 @OpenAPIDefinition(
         info = @Info(
-                title = "Customer Control API",
+                title = "CustomerController Control API",
                 version = "v1",
                 description = "API para controle de acesso"
         )

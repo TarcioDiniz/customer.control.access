@@ -75,7 +75,7 @@ http://localhost:8080/swagger-ui.html
 
 Insira aqui o diagrama de classes do sistema:
 
-![Diagrama de Classes](docs/class-diagram.png)
+![Diagrama de Classes](src/main/resources/access.png)
 
 ---
 

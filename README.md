@@ -139,14 +139,6 @@ Insira aqui o diagrama de classes do sistema:
 
 ---
 
-## Diagrama de Classes
-
-Insira aqui o diagrama de classes do sistema:
-
-![Diagrama de Classes](docs/class-diagram.png)
-
----
-
 ## Testes
 
 Executar testes unitários:

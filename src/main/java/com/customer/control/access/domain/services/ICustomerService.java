@@ -5,4 +5,7 @@ import com.customer.control.access.domain.entities.Customer;
 import com.customer.control.access.domain.services.base.IBaseService;
 
 public interface ICustomerService extends IBaseService<Customer, CustomerDto> {
+
+    Customer findByEmail(String email);
+
 }

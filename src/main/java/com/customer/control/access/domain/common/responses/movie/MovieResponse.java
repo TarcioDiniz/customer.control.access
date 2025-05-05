@@ -1,4 +1,4 @@
-package com.customer.control.access.domain.common.responses;
+package com.customer.control.access.domain.common.responses.movie;
 
 import com.customer.control.access.domain.common.responses.base.BaseResponse;
 import com.customer.control.access.domain.entities.Movie;

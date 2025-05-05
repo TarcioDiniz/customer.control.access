@@ -1,6 +1,7 @@
 package com.customer.control.access.domain.entities;
 
 import com.customer.control.access.domain.entities.base.BaseEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -14,6 +15,7 @@ import java.util.Date;
 @Entity
 public class Movie extends BaseEntity {
 
+    @Column(nullable = false)
     private String name;
     private String description;
     private String genre;

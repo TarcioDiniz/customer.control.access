@@ -1,4 +1,4 @@
-package com.customer.control.access.domain.common.responses;
+package com.customer.control.access.domain.common.responses.assignment;
 
 import com.customer.control.access.domain.common.responses.base.BaseResponse;
 import com.customer.control.access.domain.dtos.AssignmentDto;

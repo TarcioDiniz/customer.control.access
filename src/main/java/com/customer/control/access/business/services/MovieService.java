@@ -3,9 +3,11 @@ package com.customer.control.access.business.services;
 import com.customer.control.access.domain.entities.Movie;
 import com.customer.control.access.domain.repositories.IMovieRepository;
 import com.customer.control.access.domain.services.IMovieService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MovieService implements IMovieService {
 
     private final IMovieRepository movieRepository;
@@ -22,7 +24,7 @@ public class MovieService implements IMovieService {
 
     @Override
     public Movie update(Movie input) {
-        return movieRepository.update(input);
+        return movieRepository.save(input);
     }
 
     @Override

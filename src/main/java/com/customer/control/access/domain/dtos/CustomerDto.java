@@ -15,10 +15,6 @@ public class CustomerDto extends BaseEntityDto {
     private String email;
     private Iterable<String> roles;
 
-    public CustomerDto() {
-
-    }
-
     public CustomerDto(Customer customer, List<AssignmentDto> assignments) {
 
         this.setId(customer.getId());

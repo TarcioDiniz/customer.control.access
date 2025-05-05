@@ -7,9 +7,11 @@ import com.customer.control.access.domain.repositories.ICustomerRepository;
 import com.customer.control.access.domain.services.IAssignmentService;
 import com.customer.control.access.domain.services.ICustomerService;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CustomerService implements ICustomerService {
 
     private final ICustomerRepository customerRepository;
@@ -30,7 +32,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public CustomerDto update(Customer input) {
-        var customer = customerRepository.update(input);
+        var customer = customerRepository.save(input);
         var assignments = assignmentService.findALlByCustomerId(customer.getId());
         return new CustomerDto(customer, assignments);
     }
@@ -65,5 +67,10 @@ public class CustomerService implements ICustomerService {
 
         return new CustomerDto(customer, assignments);
 
+    }
+
+    @Override
+    public Customer findByEmail(String email) {
+        return customerRepository.findByEmail(email);
     }
 }

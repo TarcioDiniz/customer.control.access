@@ -4,9 +4,11 @@ import com.customer.control.access.domain.dtos.AssignmentDto;
 import com.customer.control.access.domain.entities.Assignment;
 import com.customer.control.access.domain.repositories.IAssignmentRepository;
 import com.customer.control.access.domain.services.IAssignmentService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class AssignmentService implements IAssignmentService {
 
     private final IAssignmentRepository assignmentRepository;
@@ -17,13 +19,13 @@ public class AssignmentService implements IAssignmentService {
 
     @Override
     public List<AssignmentDto> findALlByCustomerId(Long id) {
-        var assignments = assignmentRepository.findALlByCustomerId(id);
+        var assignments = assignmentRepository.findAllByCustomerId(id);
         return assignments.stream().map(AssignmentDto::new).toList();
     }
 
     @Override
     public List<AssignmentDto> findAllByMovieId(Long id) {
-        var assignments = assignmentRepository.findAllByMovieId(id);
+        var assignments = assignmentRepository.findByMovieId(id);
         return assignments.stream().map(AssignmentDto::new).toList();
     }
 
@@ -35,7 +37,7 @@ public class AssignmentService implements IAssignmentService {
 
     @Override
     public AssignmentDto update(Assignment input) {
-        var assignment = assignmentRepository.update(input);
+        var assignment = assignmentRepository.save(input);
         return new AssignmentDto(assignment);
     }
 

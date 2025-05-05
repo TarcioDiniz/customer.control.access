@@ -1,21 +1,10 @@
 package com.customer.control.access.domain.repositories.base;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
+
 import java.io.Serializable;
-import java.util.List;
-import java.util.Optional;
 
-public interface IBaseRepository<T, ID extends Serializable> {
-
-    T save(T entity);
-
-    T update(T entity);
-
-    Optional<T> findById(ID id);
-
-    List<T> findAll();
-
-    void delete(T entity);
-
-    void deleteById(ID id);
-
+@NoRepositoryBean
+public interface IBaseRepository<T, ID extends Serializable> extends JpaRepository<T, ID> {
 }

@@ -32,7 +32,14 @@ public class MovieService implements IMovieService {
 
     @Override
     public Movie update(MovieRequest input, Long id) {
-        return null;
+        var movie = movieRepository.findById(id).orElseThrow(() -> new RuntimeException("Movie not found"));
+        movie.setTitle(input.getTitle());
+        movie.setDescription(input.getDescription());
+        movie.setReleaseDate(input.getReleaseDate());
+        movie.setGenre(input.getGenre());
+        movie.setReleaseDate(input.getReleaseDate());
+
+        return movieRepository.save(movie);
     }
 
     @Override

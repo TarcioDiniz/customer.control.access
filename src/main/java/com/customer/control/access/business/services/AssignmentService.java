@@ -69,6 +69,9 @@ public class AssignmentService implements IAssignmentService {
         assignment.setRole(input.getRole());
 
         var updatedAssignment = assignmentRepository.save(assignment);
+        updatedAssignment.setCustomer(customerRepository.findById(updatedAssignment.getCustomerId()).orElseThrow());
+        updatedAssignment.setMovie(movieRepository.findById(updatedAssignment.getMovieId()).orElseThrow());
+
         return new AssignmentDto(updatedAssignment);
     }
 
